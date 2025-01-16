@@ -28,8 +28,6 @@ jobs:
         run: |
           npm install -g pnpm
           pnpm config set store-dir ~/.pnpm-store
-      - name: Verify pnpm installation
-        run: pnpm --version
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -52,10 +50,6 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-        with:
-          static_site_generator: next
       - name: Restore cache
         uses: actions/cache@v4
         with:
